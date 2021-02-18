@@ -1,0 +1,419 @@
+/*======================================================*/
+/*--------------------------------------------------------
+
+Usually, the font size in HTML is 16px or 1rem by default ( 16px = 1rem ).  
+Here in HTML, I have given Font Size 10px by default and here I have used REM as a Unit.  
+10px = 1rem.  
+
+I will give some more examples of px and rem, for example:-------
+1px   	=   .1rem
+2px		=	.2rem
+3px		=	.3rem
+4px		=	.4rem
+5px		=	.5rem
+6px 	= 	.6rem
+7px 	= 	.7rem
+8px 	= 	.8rem
+9px   	=   .9rem 
+10px  	=   1rem 
+15px 	=  	1.5rem 
+18px 	=  	1.8rem 
+20px 	= 	2rem
+27px 	= 	2.7rem;
+30px 	=  	3rem 
+35px 	=  	3.5rem
+
+----------------------------------------------------------*/
+/*=========================================================*/
+
+
+/*===================*/
+/*-- VARIABLES --*/
+/*===================*/
+:root {
+	--heading: 4rem;
+	--ssub-heading: 2.5rem;
+	--paragraph: 1.6rem;
+	--primary-color: #00008B;
+	--secondary-color: #FFFFFF;
+}
+
+/*===================*/
+/*-- VARIABLES --*/
+/*===================*/
+
+html {
+	font-size: 62.5%;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	text-rendering: optimizeLegibility;
+	scroll-behavior: smooth;
+	background: #FFEDEC;
+}
+
+body {
+	font-family: sans-serif;
+	line-height: 1.8;
+	overflow-x: hidden;
+}
+
+/*==============================*/
+/*-- REUSEBLE COMPONENTS --*/
+/*==============================*/
+section {
+	padding: 10rem 0;
+}
+
+.bg__color {
+	background: #FFEDEC;
+}
+
+.heading {
+	font-size: var(--heading);
+	font-family: ;
+	color: var(--primary-color);
+}
+
+.sub__heading {
+	font-size: var(--sub-heading);
+	font-family: ;
+	color: var(--primary-color);
+}
+
+.paragraph {
+	font-size: var(--paragraph);
+	font-family: ;
+	color: var(--primary-color);
+}
+
+.btn__primary {
+	padding: 1rem 1.5rem;
+	background: var(--primary-color);
+	color: var(--secondary-color);
+	font-size: var(--paragraph);
+}
+
+.btn__secondary {
+	padding: 1rem 1.5rem;
+	background: var(--primary-color);
+	color: var(--secondary-color);
+	font-size: var(--paragraph);
+}
+
+.btn__primary:hover {
+	background: #000;
+	color: var(--secondary-color);
+}
+
+.btn__secondary:hover {
+	background: #000;
+	color: var(--secondary-color);
+}
+
+/*==============================*/
+/*-- REUSEBLE COMPONENTS --*/
+/*==============================*/
+
+
+/*==============================*/
+/*-- START HEADER SECTION --*/
+/*==============================*/
+header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	background: var(--primary-color);
+	padding: 2rem 0;
+}
+
+.logo a .logo__img {
+	max-width: 5rem;
+}
+
+.main__menu li a {
+	color: var(--secondary-color);
+	font-weight: 500;
+	letter-spacing: .1rem;
+	font-size: var(--paragraph);
+}
+
+.main__menu li:not(:last-of-type) {
+	margin-right: 3.5rem;
+}
+
+.main__menu li:last-of-type {
+	position: relative;
+	width: 2.1rem;
+	height: 2.1rem;
+	line-height: 2.1rem;
+	text-align: center;
+	margin-top: .5rem;
+}
+
+/*- HAMBURGER MENU ICON -*/
+.menu__show__icon {
+	display: none;
+	cursor: pointer;
+	position: relative;
+	z-index: 9999999;
+}
+
+.bar1,
+.bar2,
+.bar3 {
+	width: 3.5rem;
+	height: .5rem;
+	background: var(--secondary-color);
+	margin: .6rem 0;
+}
+
+.change .bar1 {
+	-webkit-transform: rotate(-45deg) translate(-9px, 6px);
+	-ms-transform: rotate(-45deg) translate(-9px, 6px);
+	transform: rotate(-45deg) translate(-9px, 6px);
+}
+
+.change .bar2 {
+	opacity: 0;
+}
+
+.change .bar3 {
+	-webkit-transform: rotate(45deg) translate(-10px, -7px);
+	-ms-transform: rotate(45deg) translate(-10px, -7px);
+	transform: rotate(45deg) translate(-10px, -7px);
+}
+
+/*--- SEARCH BAR ---*/
+.header-search-wrapper {
+	position: relative;
+}
+
+.search-main > i,
+.search-main span {
+	font-size: 2rem;
+	cursor: pointer;
+	color: var(--secondary-color);
+}
+
+.search-main span {
+	display: none;
+}
+
+.header-search-wrapper .search-form-main {
+	-webkit-transform: scale(0);
+	-ms-transform: scale(0);
+	transform: scale(0);
+	background: var(--secondary-color);
+	-webkit-box-shadow: 1px 1px 7px rgba(0, 0, 0, .15);
+	box-shadow: 1px 1px 7px rgba(0, 0, 0, .15);
+	border-top: 3px solid #d33;
+	padding: 2rem;
+	position: absolute;
+	right: 0;
+	top: 230%;
+	width: 35rem;
+	z-index: 9999;
+	opacity: 0;
+	visibility: hidden;
+	-webkit-transition: all .4s ease-in;
+	-o-transition: all .4s ease-in;
+	transition: all .4s ease-in;
+}
+
+.header-search-wrapper .search-form-main::after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+.search-form-main.active-search {
+	-webkit-transform: scale(1);
+	-ms-transform: scale(1);
+	transform: scale(1);
+	opacity: 1;
+	visibility: visible;
+	-webkit-transition: all .4s ease-in;
+	-o-transition: all .4s ease-in;
+	transition: all .4s ease-in;
+}
+
+.header-search-wrapper .search-form-main:before {
+	border-left: 1rem solid transparent;
+	border-right: 1rem solid transparent;
+	border-bottom: 1rem solid #d33;
+	content: "";
+	position: absolute;
+	right: 1.5rem;
+	top: -1rem;
+}
+
+.header-search-wrapper .search-form-main .search-field {
+	border-radius: 0;
+	padding: 0px 10px;
+	width: 85%;
+	height: 4rem;
+	float: left;
+	display: block;
+	border: .2rem solid #d33;
+	font-size: 1.6rem;
+}
+
+.header-search-wrapper .search-form-main .search-submit {
+	cursor: pointer;
+	width: 15%;
+	font-size: 1.6rem;
+	height: 4rem;
+	background: #d33;
+	color: var(--secondary-color);
+	float: right;
+	border: .2rem solid #d33;
+}
+
+/*-- STICKY MENU --*/
+.sticky__menu {
+	width: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background: #B33771;
+	z-index: 99999999999;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+}
+
+.sticky__menu .main__menu li a {
+	color: #d1ccc0;
+}
+
+.sticky__menu .main__menu .search-main i {
+	color: #d1ccc0;
+}
+
+/*==============================*/
+/*-- END HEADER SECTION --*/
+/*==============================*/
+
+
+/*==============================*/
+/*-- START  SECTION --*/
+/*==============================*/
+
+/*==============================*/
+/*-- END  SECTION --*/
+/*==============================*/
+
+
+/*==============================*/
+/*-- START  SECTION --*/
+/*==============================*/
+
+/*==============================*/
+/*-- END  SECTION --*/
+/*==============================*/
+
+
+/*==============================*/
+/*-- START  SECTION --*/
+/*==============================*/
+
+/*==============================*/
+/*-- END  SECTION --*/
+/*==============================*/
+
+
+/*==============================*/
+/*-- START  SECTION --*/
+/*==============================*/
+
+/*==============================*/
+/*-- END  SECTION --*/
+/*==============================*/
+
+
+/*==============================*/
+/*-- START  SECTION --*/
+/*==============================*/
+
+/*==============================*/
+/*-- END  SECTION --*/
+/*==============================*/
+
+
+/*==============================*/
+/*-- START  SECTION --*/
+/*==============================*/
+
+/*==============================*/
+/*-- END  SECTION --*/
+/*==============================*/
+
+
+/*==============================*/
+/*-- START  SECTION --*/
+/*==============================*/
+
+/*==============================*/
+/*-- END  SECTION --*/
+/*==============================*/
+
+
+/*==============================*/
+/*-- START  SECTION --*/
+/*==============================*/
+
+/*==============================*/
+/*-- END  SECTION --*/
+/*==============================*/
+
+
+/*==============================*/
+/*-- START  SECTION --*/
+/*==============================*/
+
+/*==============================*/
+/*-- END  SECTION --*/
+/*==============================*/
+
+
+/*==============================*/
+/*-- START  SECTION --*/
+/*==============================*/
+
+/*==============================*/
+/*-- END  SECTION --*/
+/*==============================*/
+
+
+/*==============================*/
+/*-- START FOOTER SECTION --*/
+/*==============================*/
+
+/*==============================*/
+/*-- END FOOTER SECTION --*/
+/*==============================*/
+
+
+/*====================*/
+/*-- Back to top --*/
+/*====================*/
+#up__btn {
+	opacity: 0;
+	position: fixed;
+	bottom: 3rem;
+	right: 3rem;
+	z-index: 99;
+	font-size: 1.8rem;
+	background: darkblue;
+	color: #FFFFFF;
+	cursor: pointer;
+	width: 3.5rem;
+	height: 3.5rem;
+	line-height: 3.5rem;
+}
+
+#up__btn:hover {
+	-webkit-transform: translateY(-.7rem);
+	-ms-transform: translateY(-.7rem);
+	transform: translateY(-.7rem);
+}
