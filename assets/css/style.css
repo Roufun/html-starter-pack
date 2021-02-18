@@ -48,10 +48,10 @@ html {
 	-moz-osx-font-smoothing: grayscale;
 	text-rendering: optimizeLegibility;
 	scroll-behavior: smooth;
-	background: #FFEDEC;
 }
 
 body {
+	background: #FFEDEC;
 	font-family: sans-serif;
 	line-height: 1.8;
 	overflow-x: hidden;
